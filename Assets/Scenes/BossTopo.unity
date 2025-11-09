@@ -10707,13 +10707,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   rb: {fileID: 0}
   hitbox: {fileID: 1715398195}
-  initialPowerUps:
-  - {fileID: 11400000, guid: 324480661807d1d46aa367ce5a502969, type: 2}
-  - {fileID: 11400000, guid: 324480661807d1d46aa367ce5a502969, type: 2}
-  - {fileID: 11400000, guid: 324480661807d1d46aa367ce5a502969, type: 2}
-  - {fileID: 11400000, guid: 324480661807d1d46aa367ce5a502969, type: 2}
-  - {fileID: 11400000, guid: 324480661807d1d46aa367ce5a502969, type: 2}
-  - {fileID: 11400000, guid: 324480661807d1d46aa367ce5a502969, type: 2}
+  initialPowerUps: []
   lastNonZeroMoveInput: {x: 1, y: 0}
   dashCooldownTimer: 0
   knockbackDecay: 18
@@ -13016,6 +13010,10 @@ PrefabInstance:
     - target: {fileID: 2841863272276973460, guid: 8406d285745239c4393afb76f8cedf6f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230497784573851098, guid: 8406d285745239c4393afb76f8cedf6f, type: 3}
+      propertyPath: maxHealth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4230497784573851098, guid: 8406d285745239c4393afb76f8cedf6f, type: 3}
       propertyPath: impactEffectPrefab

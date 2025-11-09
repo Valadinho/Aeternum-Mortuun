@@ -9981,6 +9981,10 @@ PrefabInstance:
       propertyPath: playerMaskForBullets.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 6766060275267724997, guid: eb7455f0ee67e9f41974dc9c1a2a4398, type: 3}
+      propertyPath: maxHealth
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

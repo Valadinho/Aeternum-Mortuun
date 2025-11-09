@@ -951,7 +951,7 @@ MonoBehaviour:
     roomName: bar
   easyCount: 1
   mediumCount: 4
-  hardCount: 5
+  hardCount: 6
   generatedRun: []
 --- !u!4 &195921830
 Transform:
