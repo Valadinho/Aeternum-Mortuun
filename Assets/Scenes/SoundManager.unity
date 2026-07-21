@@ -2583,6 +2583,12 @@ MonoBehaviour:
   playerTag: Player
   iconSortingLayer: UI
   iconSortingOrder: 50
+  isImportantNPC: 0
+  importantIcon: {fileID: 0}
+  importantIconOffsetY: 2.7
+  maxDialogueDistance: 3.5
+  defaultDialogue: {fileID: 0}
+  conditionalDialogues: []
 --- !u!95 &687758142
 Animator:
   serializedVersion: 7
@@ -2617,12 +2623,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515e64cd0ff5d4f11b1b285800d3d8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 2
+  detectionBoxSize: {x: 1.5, y: 1}
+  detectionOffset: {x: 0, y: 1}
   pushDistance: 2
   pushSpeed: 5
   pushCooldown: 0.5
   animator: {fileID: 687758142}
   player: {fileID: 1715398198}
+  playerController: {fileID: 0}
+  playerHitbox: {fileID: 0}
+  skipPushWhenPlayerDashing: 1
 --- !u!61 &687758144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3203,6 +3213,8 @@ MonoBehaviour:
   maxHealth: 100000
   currentHealth: 100000
   impactEffectPrefab: {fileID: 8469386765634269291, guid: fe7c86aa95b57d0459e01e17175ee2b7, type: 3}
+  hitParticlePrefab: {fileID: 0}
+  damageNumberPrefab: {fileID: 0}
 --- !u!50 &789127561
 Rigidbody2D:
   serializedVersion: 5
@@ -3270,6 +3282,12 @@ MonoBehaviour:
   playerTag: Player
   iconSortingLayer: UI
   iconSortingOrder: 50
+  isImportantNPC: 0
+  importantIcon: {fileID: 0}
+  importantIconOffsetY: 2.7
+  maxDialogueDistance: 3.5
+  defaultDialogue: {fileID: 0}
+  conditionalDialogues: []
 --- !u!1 &790624074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3587,7 +3605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821700984448308204, guid: 3a1e1246dff2d4e0f88642abb6882685, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4920,6 +4938,12 @@ MonoBehaviour:
   playerTag: Player
   iconSortingLayer: UI
   iconSortingOrder: 50
+  isImportantNPC: 0
+  importantIcon: {fileID: 0}
+  importantIconOffsetY: 2.7
+  maxDialogueDistance: 3.5
+  defaultDialogue: {fileID: 0}
+  conditionalDialogues: []
 --- !u!1 &1047293633
 GameObject:
   m_ObjectHideFlags: 0
@@ -18199,11 +18223,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 4
   currentHealth: 4
+  enableRegeneration: 0
   regenerationRate: 2
   regenDelay: 3
   invulnerableTime: 1
   healthUI: {fileID: 9783276}
+  healCounterUI: {fileID: 0}
   healAmount: 1
+  healsLeft: 0
 --- !u!114 &1715398194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18898,6 +18925,7 @@ MonoBehaviour:
   mixerGroups:
   - {fileID: -6735070044237822930, guid: 2589dda68bd2be64cbfc6d2537e9369f, type: 2}
   - {fileID: -948031095554008997, guid: 2589dda68bd2be64cbfc6d2537e9369f, type: 2}
+  poolSize: 16
   minDb: -80
 --- !u!4 &1853774144
 Transform:
@@ -19292,14 +19320,12 @@ MonoBehaviour:
   dashSlideDurTxt: {fileID: 0}
   dashDurTxt: {fileID: 0}
   dashCooldownTxt: {fileID: 0}
-  maxHealthTxt: {fileID: 1632501085}
-  currentHealthTxt: {fileID: 0}
-  regenRateTxt: {fileID: 1878994279}
-  regenDelayTxt: {fileID: 0}
   baseDamageTxt: {fileID: 2140620339}
   attackCooldownTxt: {fileID: 999505154}
-  attackCooldownRemainingTxt: {fileID: 0}
   recoilDistanceTxt: {fileID: 0}
+  attackCooldownRemainingTxt: {fileID: 0}
+  regenRateTxt: {fileID: 1878994279}
+  regenDelayTxt: {fileID: 0}
 --- !u!114 &1944641653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20670,12 +20696,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515e64cd0ff5d4f11b1b285800d3d8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 2
+  detectionBoxSize: {x: 1.5, y: 1}
+  detectionOffset: {x: 0, y: 1}
   pushDistance: 2
   pushSpeed: 5
   pushCooldown: 0.5
   animator: {fileID: 2090018811}
   player: {fileID: 1715398198}
+  playerController: {fileID: 0}
+  playerHitbox: {fileID: 0}
+  skipPushWhenPlayerDashing: 1
 --- !u!114 &2090018813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20700,6 +20730,12 @@ MonoBehaviour:
   playerTag: Player
   iconSortingLayer: UI
   iconSortingOrder: 50
+  isImportantNPC: 0
+  importantIcon: {fileID: 0}
+  importantIconOffsetY: 2.7
+  maxDialogueDistance: 3.5
+  defaultDialogue: {fileID: 0}
+  conditionalDialogues: []
 --- !u!1 &2110143310
 GameObject:
   m_ObjectHideFlags: 0

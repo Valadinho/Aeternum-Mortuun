@@ -13,7 +13,7 @@ EditorBuildSettings:
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/BossMimico.unity
-    guid: f65bb4c0d5a1d8043a03cf4de95fbaa4
+    guid: dca742388e0a2ca4e981c84b737eadc5
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: deb079d24040a21428527f991239977d
@@ -25,7 +25,7 @@ EditorBuildSettings:
     guid: ed74623053d6547d2aeedb172baaad35
   - enabled: 1
     path: Assets/Scenes/Coliseo Esqueleto Arquero.unity
-    guid: e79cea9905e095141bdf7f31b4eaec2c
+    guid: 367d30adaa1d6654287f8cfa0e9b3941
   - enabled: 1
     path: Assets/Scenes/Coliseo slime.unity
     guid: bfcab49299c76344db9f9814710fac63
@@ -37,7 +37,7 @@ EditorBuildSettings:
     guid: aef1bc37dd2cd45c79d5fd51a0143c86
   - enabled: 1
     path: "Assets/Scenes/Coliseo Ara\xF1a.unity"
-    guid: 749009d91e705a9478c8075fea1ddf3d
+    guid: 7d1dfa5faa5df2043818298ac593b2ff
   - enabled: 0
     path: Assets/Coliseo Esqueleto bombas.unity
     guid: da522cc6a1a93cc429fc0cf9aa8b3f87
@@ -52,10 +52,10 @@ EditorBuildSettings:
     guid: 51a555dbb48374b3f808d014008519ab
   - enabled: 1
     path: "Assets/Scenes/EspecialAra\xF1a.unity"
-    guid: 46697b24f5e454ec9b0b6a002677938e
+    guid: 07b107a1438f03049827c9194d03305b
   - enabled: 0
     path: Assets/Scenes/Coliseo.unity
-    guid: 48755d837b5e27141bfbbad380c29b07
+    guid: 249edcb4e9d13784daa51accea16730a
   - enabled: 0
     path: Assets/Coliseo Bomba Slime.unity
     guid: 284c428590432164b9236f7bf3fda7e4
@@ -65,8 +65,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossDiablo.unity
     guid: 48da5c29d36356546916fe435ea27ed9
-  - enabled: 1
-    path: Assets/Scenes/Coliseo.unity
+  - enabled: 0
+    path: Assets/Coliseo.unity
     guid: 6ba70f79087901b4cafd0e4ea8c98e33
   - enabled: 1
     path: Assets/Scenes/LoopSlime1.unity
@@ -91,7 +91,7 @@ EditorBuildSettings:
     guid: 93c27cfecff2a0c419dd3337ef4ef6b3
   - enabled: 1
     path: Assets/Scenes/BossGolem.unity
-    guid: 9cdc632e490da8f43a7ec03d7adbb636
+    guid: 06f8b52daa41eda4e89f9089aeef8fbf
   - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: c5e1a44c0abebe340b912ffb30f7d76f
@@ -103,16 +103,16 @@ EditorBuildSettings:
     guid: 5f2767f2d41619e4786b1ba24311a7e1
   - enabled: 1
     path: Assets/Scenes/Bares/bar.unity
-    guid: 765d31e1002d06c42aa412b389f08621
+    guid: 70a9259b82d93f84eb6146ba6f1d12e1
   - enabled: 1
     path: Assets/Scenes/Bares/bar Layout2.unity
-    guid: 7c2d7f88f1c0944c89543d106190ce0e
+    guid: da2f7b4965d292e4c92f9fc19f2d6321
   - enabled: 1
     path: Assets/Scenes/Bares/bar Rata.unity
-    guid: 7ca354ffb3dea4baab778002d62aef3b
+    guid: 2ac0ddf12921bef4da45432bb8d1b599
   - enabled: 1
     path: Assets/Scenes/Bares/bar Ruletas.unity
-    guid: 7aa2081b2945e1745bacf99dcae94e83
+    guid: c635b5d26a7d38f4db2a67960ba4183d
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 136785d227814ee4ca70b18b6daf9cd7

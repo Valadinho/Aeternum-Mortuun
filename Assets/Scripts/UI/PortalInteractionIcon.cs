@@ -22,7 +22,8 @@ public class PortalInteractionIcon : MonoBehaviour
         // Agregar SpriteRenderer
         iconRenderer = iconObject.AddComponent<SpriteRenderer>();
         iconRenderer.sprite = iconSprite;
-        iconRenderer.sortingOrder = 999; // para que siempre se vea por encima
+        iconRenderer.sortingLayerName = "Player";
+        iconRenderer.sortingOrder = 9999; // para que siempre se vea por encima
 
         // Ocultar el icono al inicio
         iconObject.SetActive(false);
