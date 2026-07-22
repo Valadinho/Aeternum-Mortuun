@@ -1168,8 +1168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4bebc7bfe9d394592353853ce4bc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minVueltasSkip: 3
-  maxVueltasSkip: 5
   powerUpPools: []
   powerUpPool: {fileID: 0}
   rewardPopup: {fileID: 0}
@@ -1248,6 +1246,7 @@ MonoBehaviour:
     Index: 0
     _weight: 0
   usosMaximos: 3
+  velocidadSkip: 12
 --- !u!1 &102452971
 GameObject:
   m_ObjectHideFlags: 0
@@ -10925,8 +10924,8 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 2589dda68bd2be64cbfc6d2537e9369f, type: 2}
   musicParameter: MusicVol
   sfxParameter: SFXVol
-  menuMusicSlider: {fileID: 0}
-  menuSfxSlider: {fileID: 0}
+  menuMusicSlider: {fileID: 1562540228}
+  menuSfxSlider: {fileID: 1325218217}
   pauseMusicSlider: {fileID: 0}
   pauseSfxSlider: {fileID: 0}
   musicPrefKey: MASTER_MUSIC

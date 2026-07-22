@@ -17,12 +17,7 @@ namespace EasyUI.PickerWheelUI
 
     public class PickerWheel : MonoBehaviour
     {
-        [Header("Skip Spin Feel")]
-        [SerializeField] private int minVueltasSkip = 3;
-        [SerializeField] private int maxVueltasSkip = 5;
 
-        private bool skipForzado = false;
-        private WheelPiece premioForzado = null;
 
         [Header("Pools ponderados")]
         [SerializeField] private List<WeightedPowerUpPool> powerUpPools = new List<WeightedPowerUpPool>();
@@ -62,6 +57,9 @@ namespace EasyUI.PickerWheelUI
         [Header("Usos")]
         [SerializeField] private int usosMaximos = 3;
         private int usosRestantes;
+
+        [Header("Configuración de Skip")]
+        [SerializeField] private float velocidadSkip = 12f;
 
         // Estado interno
         private bool _isSpinning = false;
@@ -112,97 +110,71 @@ namespace EasyUI.PickerWheelUI
 
         public void Spin()
         {
-            // 1. SKIP: Si ya gira, frenamos
+            // SKIP: acelerar el giro que ya existe
             if (_isSpinning)
             {
-                if (_pickerTween != null) _pickerTween.Kill();
-
-                // 1️⃣ Elegimos premio aleatorio
-                int index = GetRandomPieceIndex();
-                premioForzado = wheelPieces[index];
-                skipForzado = true;
-
-                // 2️⃣ Obtenemos la pieza visual correspondiente
-                Transform pieza = wheelPiecesParent.GetChild(index);
-
-                Transform referencia = pieza.Find("IconContainer");
-                if (referencia == null) referencia = pieza.GetChild(0);
-
-                // 3️⃣ Giramos hasta que ESA pieza quede bajo el puntero
-                float targetZ = CalcularRotacionParaAlinearReferencia(referencia);
-
-                // 🔹 Vueltas extra para evitar percepción de premio cercano
-                int vueltasExtra = UnityEngine.Random.Range(minVueltasSkip, maxVueltasSkip + 1);
-                float direccion = UnityEngine.Random.value < 0.5f ? -1f : 1f;
-
-
-                targetZ += 360f * vueltasExtra * direccion;
-
-
-                _pickerTween = wheelCircle
-                    .DORotate(new Vector3(0, 0, targetZ), 0.4f)
-                    .SetEase(Ease.OutCubic)
-                    .SetUpdate(true)
-                    .OnComplete(FinalizarGiro);
+                if (_pickerTween != null && _pickerTween.IsActive())
+                {
+                    _pickerTween.timeScale = velocidadSkip;
+                }
 
                 return;
             }
 
-
-            // 2. VALIDACIÓN
+            // Validación de usos
             if (usosRestantes <= 0)
             {
                 Debug.LogWarning("Sin usos.");
                 return;
             }
 
-            // 3. INICIO
+            // Inicio del giro normal
             _isSpinning = true;
             onSpinStartEvent?.Invoke();
 
-            // Elegimos un objetivo matemático basado en probabilidades para guiar la animación.
-            // PERO el ganador real se decidirá visualmente al final.
             targetIndexMath = GetRandomPieceIndex();
 
-            // Cálculo de ángulos
             float anglePerItem = 360f / wheelPieces.Length;
-            float targetBaseAngle = -(anglePerItem * targetIndexMath); // Base del premio elegido
-            targetBaseAngle += wheelOffset; // Corrección de flecha
+            float targetBaseAngle = -(anglePerItem * targetIndexMath);
+            targetBaseAngle += wheelOffset;
 
-            // Random Offset: Para que no caiga siempre en el centro del gajo.
-            // Usamos un rango del 45% para que pueda quedar muy cerca de la línea divisoria.
             float offsetRange = anglePerItem * 0.45f;
             float randomOffset = UnityEngine.Random.Range(-offsetRange, offsetRange);
 
             float finalTargetAngle = targetBaseAngle + randomOffset;
             float totalRotation = finalTargetAngle - (360f * spinRounds);
 
-            // Variables de sonido
             float prevAngle = wheelCircle.eulerAngles.z;
             float currentAngle = prevAngle;
             bool isIndicatorOnLine = false;
 
-            // 4. ANIMACIÓN
             _pickerTween = wheelCircle
-                .DORotate(new Vector3(0, 0, totalRotation), spinDuration, RotateMode.FastBeyond360)
+                .DORotate(
+                    new Vector3(0, 0, totalRotation),
+                    spinDuration,
+                    RotateMode.FastBeyond360
+                )
                 .SetEase(spinCurve)
                 .SetUpdate(true)
                 .OnUpdate(() =>
                 {
                     float diff = Mathf.Abs(prevAngle - currentAngle);
+
                     if (diff >= halfPieceAngle)
                     {
-                        if (isIndicatorOnLine && audioSource != null) audioSource.PlayOneShot(audioSource.clip);
+                        if (isIndicatorOnLine && audioSource != null)
+                            audioSource.PlayOneShot(audioSource.clip);
+
                         prevAngle = currentAngle;
                         isIndicatorOnLine = !isIndicatorOnLine;
                     }
+
                     currentAngle = wheelCircle.eulerAngles.z;
                 })
-                .OnComplete(() =>
-                {
-                    FinalizarGiro();
-                });
+                .OnComplete(FinalizarGiro);
         }
+
+
 
         private float CalcularRotacionParaAlinearReferencia(Transform referencia)
         {
@@ -233,22 +205,13 @@ namespace EasyUI.PickerWheelUI
         {
             _isSpinning = false;
             usosRestantes--;
+
+            if (_pickerTween != null)
+                _pickerTween.timeScale = 1f;
+
             _pickerTween = null;
 
-            // AQUÍ ESTÁ EL CAMBIO CLAVE:
-            // En lugar de usar el índice pre-calculado, calculamos visualmente quién ganó ahora que se detuvo.
-            if (skipForzado && premioForzado != null)
-            {
-                ultimoPremio = premioForzado;
-            }
-            else
-            {
-                ultimoPremio = CalcularGanadorVisualmente();
-            }
-
-            skipForzado = false;
-            premioForzado = null;
-
+            ultimoPremio = CalcularGanadorVisualmente();
 
             Debug.Log($"🎯 Ganador visual determinado: {ultimoPremio.Label}");
 
@@ -256,7 +219,6 @@ namespace EasyUI.PickerWheelUI
             OnSpinEnd?.Invoke(ultimoPremio);
             onSpinEndEvent?.Invoke(ultimoPremio);
         }
-
         // Esta función calcula qué pieza está físicamente más cerca del puntero verde
         private WheelPiece CalcularGanadorVisualmente()
         {
