@@ -15,6 +15,13 @@ public class DiceRNGPowerUp : PowerUp
     [Tooltip("Segundos que el resultado final queda visible")]
     public float showFinalFor = 1.2f;
 
+    [Header("Overlay Visual")]
+    [Tooltip("Fondo del panel donde se muestran las tiradas.")]
+    public Sprite panelBackground;
+    [Range(0f, 1f)]
+    [Tooltip("Opacidad del fondo. 0.7 equivale a 30% transparente.")]
+    public float panelBackgroundAlpha = 0.7f;
+
     // ✅ Marker global: si existe, esta perk ya se ejecutó en esta run
     private const string AppliedOnceMarkerName = "DiceRNG_APPLIED_ONCE";
 
@@ -44,7 +51,7 @@ public class DiceRNGPowerUp : PowerUp
         // Overlay que tira los dados y aplica en escena actual
         var go = new GameObject("DiceRollOverlay");
         var overlay = go.AddComponent<DiceRollOverlay>();
-        overlay.Initialize(player, diceFaces, rollAnimPerStat, showFinalFor, marker);
+        overlay.Initialize(player, diceFaces, rollAnimPerStat, showFinalFor, marker, panelBackground, panelBackgroundAlpha);
 
         // Remover la perk de initialPowerUps (one-shot)
         RemoveFromPlayerList(player);

@@ -18,3 +18,5 @@ MonoBehaviour:
   diceFaces: fdfffffffeffffffffffffff010000000200000003000000
   rollAnimPerStat: 0.6
   showFinalFor: 5
+  panelBackground: {fileID: 8251704477304097094, guid: eb2054a914b62874b8b77df00d33b069, type: 3}
+  panelBackgroundAlpha: 0.7

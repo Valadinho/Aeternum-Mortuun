@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b556bc7d88f4c834dbb55d7ea589bfc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptSprite: {fileID: 1253522814677020843, guid: 38383c36755a9b542aac52d3ba45b273, type: 3}
+  promptSprite: {fileID: 3586741604311950002, guid: e5c2a70ce542543008496729a857058b, type: 3}
   offset: {x: 0, y: 1.5, z: 0}
   sortingLayer: 
   sortingOrder: 5000

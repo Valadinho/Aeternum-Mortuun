@@ -16,6 +16,8 @@ public class DiceRollOverlay : MonoBehaviour
     private float animTimePerStat;
     private float finalHold;
     private GameObject marker;
+    private Sprite panelBackground;
+    private float panelBackgroundAlpha = 0.7f;
 
     private enum Step { RollingDamage, RollingSpeed, RollingHealth, ShowingFinal, Done }
     private Step step = Step.RollingDamage;
@@ -29,13 +31,15 @@ public class DiceRollOverlay : MonoBehaviour
     private GUIStyle labelStyle;
     private float screenScale = 1f;
 
-    public void Initialize(PlayerController player, int[] faces, float perStatAnim, float showFinalFor, GameObject marker)
+    public void Initialize(PlayerController player, int[] faces, float perStatAnim, float showFinalFor, GameObject marker, Sprite panelBackground = null, float panelBackgroundAlpha = 0.7f)
     {
         this.player = player;
         this.faces = (faces != null && faces.Length > 0) ? faces : new int[] { -3, -2, -1, 1, 2, 3 };
         this.animTimePerStat = Mathf.Max(0.1f, perStatAnim);
         this.finalHold = Mathf.Max(0.5f, showFinalFor);
         this.marker = marker;
+        this.panelBackground = panelBackground;
+        this.panelBackgroundAlpha = Mathf.Clamp01(panelBackgroundAlpha);
 
         DontDestroyOnLoad(gameObject);
         StartCoroutine(RunSequence());
@@ -136,7 +140,7 @@ public class DiceRollOverlay : MonoBehaviour
         if (bigStyle == null)
         {
             bigStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, wordWrap = true };
-            labelStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter };
+            labelStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, wordWrap = true };
 
             // Escala según resolución
             screenScale = Mathf.Clamp((float)Screen.height / 1080f, 0.7f, 1.6f);
@@ -146,13 +150,25 @@ public class DiceRollOverlay : MonoBehaviour
 
         float w = 700 * screenScale;
         float h = 300 * screenScale;
-        Rect r = new Rect((Screen.width - w) * 0.5f, (Screen.height - h) * 0.5f, w, h);
+        float topMargin = 36 * screenScale;
+        Rect r = new Rect((Screen.width - w) * 0.5f, topMargin, w, h);
 
-        // Fondo translúcido
+        // Fondo del panel
         Color old = GUI.color;
-        GUI.color = new Color(0, 0, 0, 0.45f);
-        GUI.Box(r, GUIContent.none);
+        if (panelBackground != null && panelBackground.texture != null)
+        {
+            GUI.color = new Color(1f, 1f, 1f, panelBackgroundAlpha);
+            DrawSprite(r, panelBackground);
+        }
+        else
+        {
+            GUI.color = new Color(0, 0, 0, panelBackgroundAlpha);
+            GUI.Box(r, GUIContent.none);
+        }
         GUI.color = old;
+
+        float margin = 58 * screenScale;
+        Rect titleRect = new Rect(r.x + margin, r.y + 18 * screenScale, r.width - margin * 2, 44 * screenScale);
 
         // Título
         string title = step switch
@@ -163,14 +179,16 @@ public class DiceRollOverlay : MonoBehaviour
             Step.ShowingFinal => "Resultado final",
             _ => "Dados"
         };
-        GUI.Label(new Rect(r.x, r.y + 10, r.width, 40 * screenScale), title, labelStyle);
+        FitFontSize(labelStyle, title, titleRect, Mathf.RoundToInt(30 * screenScale), Mathf.RoundToInt(18 * screenScale));
+        GUI.Label(titleRect, title, labelStyle);
 
         // Valor grande con ajuste de fuente en el final para que entre
         string valueText;
+        Rect textRect = new Rect(r.x + margin, r.y + 76 * screenScale, r.width - margin * 2, r.height - 108 * screenScale);
         if (step == Step.ShowingFinal)
         {
-            valueText = $"Daño: {resultDamage}   |   Velocidad: {resultSpeed}   |   Vida: {resultHealth}";
-            bigStyle.fontSize = Mathf.RoundToInt(44 * screenScale); // más chico para que entre
+            valueText = $"Daño: {Signed(resultDamage)}\nVelocidad: {Signed(resultSpeed)}\nVida: {Signed(resultHealth)}";
+            FitFontSize(bigStyle, valueText, textRect, Mathf.RoundToInt(40 * screenScale), Mathf.RoundToInt(20 * screenScale));
         }
         else
         {
@@ -178,7 +196,34 @@ public class DiceRollOverlay : MonoBehaviour
             bigStyle.fontSize = Mathf.RoundToInt(90 * screenScale); // grande mientras rueda
         }
 
-        Rect textRect = new Rect(r.x + 14, r.y + (h * 0.25f), r.width - 28, h * 0.55f);
         GUI.Label(textRect, valueText, bigStyle);
+    }
+
+    private static void FitFontSize(GUIStyle style, string text, Rect rect, int maxSize, int minSize)
+    {
+        GUIContent content = new GUIContent(text);
+        style.fontSize = Mathf.Max(minSize, maxSize);
+
+        while (style.fontSize > minSize && style.CalcHeight(content, rect.width) > rect.height)
+            style.fontSize--;
+    }
+
+    private static string Signed(int value)
+    {
+        return value > 0 ? $"+{value}" : value.ToString();
+    }
+
+    private static void DrawSprite(Rect rect, Sprite sprite)
+    {
+        Texture texture = sprite.texture;
+        Rect textureRect = sprite.textureRect;
+        Rect coords = new Rect(
+            textureRect.x / texture.width,
+            textureRect.y / texture.height,
+            textureRect.width / texture.width,
+            textureRect.height / texture.height
+        );
+
+        GUI.DrawTextureWithTexCoords(rect, texture, coords, true);
     }
 }

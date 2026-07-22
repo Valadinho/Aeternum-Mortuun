@@ -1,0 +1,357 @@
+fileFormatVersion: 2
+guid: 5263e9ab496e70d468082fb68ab4cb83
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1686420013357018338
+    second: Aeternum123_0
+  - first:
+      213: 2332279011530590410
+    second: Aeternum123_1
+  - first:
+      213: 7711027541324240107
+    second: Aeternum123_2
+  - first:
+      213: -5581608481552607247
+    second: Aeternum123_3
+  - first:
+      213: 4390760809139526727
+    second: Aeternum123_4
+  - first:
+      213: 4038954284609285294
+    second: Aeternum123_5
+  - first:
+      213: -1434768226381781702
+    second: Aeternum123_6
+  - first:
+      213: -6612455429715170350
+    second: Aeternum123_7
+  - first:
+      213: 7813813128706598245
+    second: Aeternum123_8
+  - first:
+      213: 5990795442307689893
+    second: Aeternum123_9
+  - first:
+      213: 1429736069582680481
+    second: Aeternum123_10
+  - first:
+      213: 6457975442461329034
+    second: Aeternum123_11
+  - first:
+      213: 1161261222723833891
+    second: Aeternum123_12
+  - first:
+      213: 8406348310527977962
+    second: Aeternum123_13
+  - first:
+      213: 3663475786966619202
+    second: Aeternum123_14
+  - first:
+      213: 8854331105434555910
+    second: Aeternum123_15
+  - first:
+      213: 6534836987651590673
+    second: Aeternum123_16
+  - first:
+      213: -4107061483229197836
+    second: Aeternum123_17
+  - first:
+      213: -3909515213675608636
+    second: Aeternum123_18
+  - first:
+      213: 7960654024384739745
+    second: Aeternum123_19
+  - first:
+      213: 3488678640273569787
+    second: Aeternum123_20
+  - first:
+      213: -1977098412826778855
+    second: Aeternum123_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Aeternum123_0
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 617
+        width: 312
+        height: 279
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e13deb1dee1a898e0800000000000000
+      internalID: -1686420013357018338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aeternum123_1
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 605
+        width: 326
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac8416f676bed5020800000000000000
+      internalID: 2332279011530590410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aeternum123_4
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 613
+        width: 321
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74cd77251bd1fec30800000000000000
+      internalID: 4390760809139526727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aeternum123_7
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 593
+        width: 337
+        height: 308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db69ba22d6db34a0800000000000000
+      internalID: -6612455429715170350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aeternum123_16
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 222
+        width: 339
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a8e020e9760ba50800000000000000
+      internalID: 6534836987651590673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aeternum123_18
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 210
+        width: 307
+        height: 273
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c541ec60ac9eb9c0800000000000000
+      internalID: -3909515213675608636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aeternum123_20
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 209
+        width: 342
+        height: 276
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7bff05db64a6030800000000000000
+      internalID: 3488678640273569787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 91b63c3b3a201c648b82988b14860fa9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Aeternum123_0: -1686420013357018338
+      Aeternum123_1: 2332279011530590410
+      Aeternum123_16: 6534836987651590673
+      Aeternum123_18: -3909515213675608636
+      Aeternum123_20: 3488678640273569787
+      Aeternum123_4: 4390760809139526727
+      Aeternum123_7: -6612455429715170350
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
