@@ -12344,9 +12344,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 482193124105386121, guid: 29988b0e09e08fc42bdab1b7766f1636, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.43
+      objectReference: {fileID: 0}
     - target: {fileID: 4011964731971869129, guid: 29988b0e09e08fc42bdab1b7766f1636, type: 3}
       propertyPath: m_Name
       value: MimicLanes
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349679665817801475, guid: 29988b0e09e08fc42bdab1b7766f1636, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: 6658998182769051675, guid: 29988b0e09e08fc42bdab1b7766f1636, type: 3}
       propertyPath: m_LocalPosition.x

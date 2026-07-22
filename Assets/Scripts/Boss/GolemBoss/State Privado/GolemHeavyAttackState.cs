@@ -21,6 +21,8 @@ public class GolemHeavyAttackState : State<EnemyInputs>
     // trayectoria
     private Vector2 jumpStart;
     private Vector2 jumpTarget;
+    private GameObject landingTargetInstance;
+    private SpriteRenderer landingTargetRenderer;
 
     private float airTimeThisJump;
     private float arcThisJump;
@@ -37,6 +39,7 @@ public class GolemHeavyAttackState : State<EnemyInputs>
         finished = false;
         timer = 0f;
         phase = Phase.Windup;
+        DestroyLandingTarget();
 
         // Sellar cooldown al entrar al estado (único lugar)
         golem.MarkHeavyUsed();
@@ -90,6 +93,8 @@ public class GolemHeavyAttackState : State<EnemyInputs>
 
     public override void Sleep()
     {
+        DestroyLandingTarget();
+
         // Restaurar físicas
         if (golem.Body != null)
         {
@@ -139,6 +144,7 @@ public class GolemHeavyAttackState : State<EnemyInputs>
             aim = jumpStart + toAim.normalized * maxRange;
 
         jumpTarget = aim;
+        SpawnLandingTarget();
 
         // Liberamos SOLO la posición para animar el salto manualmente
         if (golem.Body != null)
@@ -220,6 +226,7 @@ public class GolemHeavyAttackState : State<EnemyInputs>
         float arc = golem.HeavyArcHeight * 4f * t * (1f - t); // parábola simple
 
         golem.Transform.position = new Vector3(pos.x, pos.y + arc, golem.Transform.position.z);
+        UpdateLandingTarget(t);
         LookAtPlayer();
     }
 
@@ -227,6 +234,7 @@ public class GolemHeavyAttackState : State<EnemyInputs>
     {
         impacted = true;
         phase = Phase.Impact;
+        DestroyLandingTarget();
 
         // congelar posición en el frame de impacto (pose del golpe)
         if (golem.Body)
@@ -248,6 +256,51 @@ public class GolemHeavyAttackState : State<EnemyInputs>
         // FX opcionales aquí (polvo, screenshake, etc.)
     }
 
+    private void SpawnLandingTarget()
+    {
+        DestroyLandingTarget();
+
+        if (!golem.HeavyLandingTargetPrefab) return;
+
+        Vector3 targetPosition = new Vector3(
+            jumpTarget.x,
+            jumpTarget.y,
+            golem.Transform.position.z
+        );
+
+        landingTargetInstance = Object.Instantiate(
+            golem.HeavyLandingTargetPrefab,
+            targetPosition,
+            Quaternion.identity
+        );
+
+        landingTargetRenderer = landingTargetInstance.GetComponent<SpriteRenderer>();
+        if (landingTargetRenderer)
+        {
+            Color color = landingTargetRenderer.color;
+            color.a = 0.3f;
+            landingTargetRenderer.color = color;
+        }
+    }
+
+    private void UpdateLandingTarget(float jumpProgress)
+    {
+        if (!landingTargetRenderer) return;
+
+        Color color = landingTargetRenderer.color;
+        color.a = Mathf.Lerp(0.3f, 0.85f, jumpProgress);
+        landingTargetRenderer.color = color;
+    }
+
+    private void DestroyLandingTarget()
+    {
+        if (landingTargetInstance)
+            Object.Destroy(landingTargetInstance);
+
+        landingTargetInstance = null;
+        landingTargetRenderer = null;
+    }
+
     private void LookAtPlayer()
     {
         var p = golem.GetPlayer(); if (!p) return;
@@ -256,3 +309,5 @@ public class GolemHeavyAttackState : State<EnemyInputs>
         if (sr) sr.flipX = d.x < 0;
     }
 }
+
+

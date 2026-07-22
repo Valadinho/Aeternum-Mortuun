@@ -214,6 +214,7 @@ MonoBehaviour:
   heavyPlayerMask:
     serializedVersion: 2
     m_Bits: 64
+  heavyLandingTargetPrefab: {fileID: 6689375257217303654, guid: 82970d94e65aa0f4982ae3222e2152f8, type: 3}
   heavyDecisionRange: 100
   heavyJumpMaxRange: 100
   heavyLeadTime: 0.25

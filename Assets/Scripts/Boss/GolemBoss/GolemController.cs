@@ -47,6 +47,9 @@ public class GolemController : MonoBehaviour, IEnemyDataProvider, IMeleeHost
     [SerializeField] private float heavyCooldownMax = 15f;
     [SerializeField] private LayerMask heavyPlayerMask;
 
+    [Header("Heavy Landing Target")]
+    [SerializeField] private GameObject heavyLandingTargetPrefab;
+
     [Header("Heavy Ranges (advanced)")]
     [SerializeField] private float heavyDecisionRange = 6f; // hasta dónde la IA considera usar Heavy
     [SerializeField] private float heavyJumpMaxRange = 8f; // hasta dónde PUEDE saltar físicamente
@@ -96,6 +99,7 @@ public class GolemController : MonoBehaviour, IEnemyDataProvider, IMeleeHost
     public float HeavyDamage => heavyDamage;
     public float HeavyStunTime => heavyStunTime;
     public LayerMask HeavyPlayerMask => heavyPlayerMask;
+    public GameObject HeavyLandingTargetPrefab => heavyLandingTargetPrefab;
 
     // registro + eventos de animación (poné estos métodos en el controller)
     public void RegisterHeavyState(GolemHeavyAttackState s) => _heavyRef = s;
@@ -297,3 +301,5 @@ public class GolemController : MonoBehaviour, IEnemyDataProvider, IMeleeHost
         Gizmos.DrawWireSphere(transform.position, heavyDamageRadius);
     }
 }
+
+
