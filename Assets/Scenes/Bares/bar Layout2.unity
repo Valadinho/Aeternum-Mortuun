@@ -15010,7 +15010,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 3022bfcc938be9d47b728012e0cbe9ca, type: 3}
   m_Resource: {fileID: 8300000, guid: 3022bfcc938be9d47b728012e0cbe9ca, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.06
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -22225,8 +22225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4bebc7bfe9d394592353853ce4bc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minVueltasSkip: 3
-  maxVueltasSkip: 5
   powerUpPools: []
   powerUpPool: {fileID: 0}
   rewardPopup: {fileID: 0}
@@ -22305,6 +22303,7 @@ MonoBehaviour:
     Index: 0
     _weight: 0
   usosMaximos: 3
+  velocidadSkip: 12
 --- !u!82 &2124249737
 AudioSource:
   m_ObjectHideFlags: 0
